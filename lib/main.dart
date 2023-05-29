@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        RepositoryProvider(create: (_) => ChopperFactory.create()),
+        RepositoryProvider<ChopperClient>(
+            create: (_) => ChopperFactory.create()),
         RepositoryProvider<UserService>(
             create: (ctx) => ctx.read<ChopperClient>().getService()),
         RepositoryProvider<LoginService>(

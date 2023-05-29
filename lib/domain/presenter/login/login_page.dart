@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_reqres_login/domain/presenter/home/model/home_page_argument.dart';
 import 'package:my_reqres_login/domain/presenter/login/bloc/login_bloc.dart';
 import 'package:my_reqres_login/domain/presenter/login/bloc/login_state.dart';
 import 'package:my_reqres_login/domain/presenter/login/widgets/email_text_field.dart';
 import 'package:my_reqres_login/domain/presenter/login/widgets/login_button.dart';
 import 'package:my_reqres_login/domain/presenter/login/widgets/password_text_field.dart';
+import 'package:my_reqres_login/domain/presenter/util/routes.dart';
 import 'package:my_reqres_login/domain/presenter/widgets/alert.dart';
 import 'package:my_reqres_login/domain/presenter/widgets/space_vertical.dart';
 
@@ -52,7 +54,15 @@ class LoginPage extends StatelessWidget {
                     ],
                   );
                 },
-                listener: (context, state) {},
+                listener: (context, state) {
+                  if (state is LoginSuccessState) {
+                    Navigator.pushNamed(
+                      context,
+                      Routes.home,
+                      arguments: HomePageArgument(state.email),
+                    );
+                  }
+                },
               )),
         ),
       ),

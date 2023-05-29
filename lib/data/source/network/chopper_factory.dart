@@ -1,5 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:my_reqres_login/data/source/network/response_converter.dart';
+import 'package:my_reqres_login/data/source/network/service/login_service.dart';
 import 'package:my_reqres_login/data/source/network/service/user_service.dart';
 
 class ChopperFactory {
@@ -14,6 +15,9 @@ class ChopperFactory {
     baseUrl: Uri.parse("https://reqres.in/api"),
         converter: ResponseConverter(),
         errorConverter: ResponseConverter(),
-        services: [UserService.create()],
+        services: [
+          UserService.create(),
+          LoginService.create(),
+        ],
       );
 }
