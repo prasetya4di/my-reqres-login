@@ -1,5 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:my_reqres_login/data/source/network/response_converter.dart';
+import 'package:my_reqres_login/data/source/network/service/user_service.dart';
 
 class ChopperFactory {
   late final ChopperClient client;
@@ -10,9 +11,9 @@ class ChopperFactory {
 
   /// Create an instance of ObjectBox to use throughout the app.
   static ChopperClient create() => ChopperClient(
-        baseUrl: Uri.parse("https://api.themoviedb.org/3"),
+    baseUrl: Uri.parse("https://reqres.in/api"),
         converter: ResponseConverter(),
         errorConverter: ResponseConverter(),
-        services: [],
+        services: [UserService.create()],
       );
 }
