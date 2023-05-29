@@ -5,6 +5,7 @@ import 'package:my_reqres_login/data/repository/user_repository_impl.dart';
 import 'package:my_reqres_login/data/source/network/chopper_factory.dart';
 import 'package:my_reqres_login/data/source/network/service/login_service.dart';
 import 'package:my_reqres_login/data/source/network/service/user_service.dart';
+import 'package:my_reqres_login/domain/presenter/home/bloc/home_bloc.dart';
 import 'package:my_reqres_login/domain/presenter/login/bloc/login_bloc.dart';
 import 'package:my_reqres_login/domain/presenter/util/routes.dart';
 import 'package:my_reqres_login/domain/repository/user_repository.dart';
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<PostLogin>(
             create: (ctx) => PostLoginImpl(ctx.read())),
         RepositoryProvider<GetUser>(create: (ctx) => GetUserImpl(ctx.read())),
-        BlocProvider(create: (ctx) => LoginBloc(ctx.read()))
+        BlocProvider(create: (ctx) => LoginBloc(ctx.read())),
+        BlocProvider(create: (ctx) => HomeBloc(ctx.read())),
       ],
       child: MaterialApp(
         title: 'My Reqres Login',

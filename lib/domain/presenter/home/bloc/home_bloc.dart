@@ -11,7 +11,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) async {
       await event.when(
         onGetUser: (email) async {
-          _getUser(email)
+          await _getUser(email)
               .onError((error, stackTrace) => Left(ErrorResponse("Error")))
               .then(
                 (value) => value.fold(

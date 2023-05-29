@@ -13,8 +13,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<HomeBloc>();
+
+    WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((_) {
+      bloc.add(HomeEvent.onGetUser(argument.email));
+    });
+
     return Scaffold(
       appBar: AppBar(
+        leading: const SizedBox(),
         actions: [
           IconButton(
             onPressed: () {
@@ -27,19 +34,21 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: BlocConsumer<HomeBloc, HomeState>(
-            builder: (context, state) {
-              if (state is HomeLoadingState) {
-                return const CircularProgressIndicator();
-              } else if (state is HomeErrorState) {
-                return Alert.danger(text: state.message);
-              } else if (state is HomeSuccessState) {
-                return ProfileWidget(user: state.user);
-              } else {
-                return const SizedBox();
-              }
-            },
-            listener: (context, state) {},
+          child: Center(
+            child: BlocConsumer<HomeBloc, HomeState>(
+              builder: (context, state) {
+                if (state is HomeLoadingState) {
+                  return const CircularProgressIndicator();
+                } else if (state is HomeErrorState) {
+                  return Alert.danger(text: state.message);
+                } else if (state is HomeSuccessState) {
+                  return ProfileWidget(user: state.user);
+                } else {
+                  return const SizedBox();
+                }
+              },
+              listener: (context, state) {},
+            ),
           ),
         ),
       ),

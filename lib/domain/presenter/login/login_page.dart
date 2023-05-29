@@ -56,6 +56,8 @@ class LoginPage extends StatelessWidget {
                 },
                 listener: (context, state) {
                   if (state is LoginSuccessState) {
+                    _emailController.text = "";
+                    _passwordController.text = "";
                     Navigator.pushNamed(
                       context,
                       Routes.home,
