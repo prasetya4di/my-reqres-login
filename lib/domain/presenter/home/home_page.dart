@@ -10,9 +10,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
           child: Column(
-        children: [],
-      )),
+            children: [Text("email@email.com"), Text("First name Last name")],
+          ),
+        ),
+      ),
     );
   }
 }
