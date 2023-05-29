@@ -3,5 +3,5 @@ import 'package:my_reqres_login/data/source/network/model/response/error_respons
 import 'package:my_reqres_login/domain/entities/user.dart';
 
 abstract class GetUser {
-  Future<Either<ErrorResponse, User>> call(int userId);
+  Future<Either<ErrorResponse, User>> call(String email);
 }

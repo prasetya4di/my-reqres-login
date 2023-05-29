@@ -13,8 +13,8 @@ class UserRepositoryImpl implements UserRepository {
   UserRepositoryImpl(this._loginService, this._userService);
 
   @override
-  Future<Response<UserResponse>> getUser(int userId) async =>
-      await _userService.getUser(userId);
+  Future<Response<UserResponse>> getUser() async =>
+      await _userService.getUser(2);
 
   @override
   Future<Response<LoginResponse>> login(LoginRequest request) async =>

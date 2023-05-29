@@ -18,11 +18,13 @@ class _$UserService extends UserService {
 
   @override
   Future<Response<UserResponse>> getUser(int userId) {
-    final Uri $url = Uri.parse('/users/${userId}');
+    final Uri $url = Uri.parse('/users');
+    final Map<String, dynamic> $params = <String, dynamic>{'user_id': userId};
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      parameters: $params,
     );
     return client.send<UserResponse, UserResponse>($request);
   }

@@ -17,15 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginEvent {
   String get email => throw _privateConstructorUsedError;
-
   String get password => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String email, String password) onLogin,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String email, String password)? onLogin,
@@ -37,13 +34,11 @@ mixin _$LoginEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PostLoginEvent value) onLogin,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PostLoginEvent value)? onLogin,
@@ -75,7 +70,7 @@ class _$LoginEventCopyWithImpl<$Res, $Val extends LoginEvent>
     implements $LoginEventCopyWith<$Res> {
   _$LoginEventCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
 // ignore: unused_field
   final $Res Function($Val) _then;

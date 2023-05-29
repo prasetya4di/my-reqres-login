@@ -7,6 +7,6 @@ part 'user_service.chopper.dart';
 abstract class UserService extends ChopperService {
   static UserService create([ChopperClient? client]) => _$UserService(client);
 
-  @Get(path: "/{user_id}")
-  Future<Response<UserResponse>> getUser(@Path("user_id") int userId);
+  @Get()
+  Future<Response<UserResponse>> getUser(@Query() int page);
 }

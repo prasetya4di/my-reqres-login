@@ -10,17 +10,18 @@ class GetUserImpl implements GetUser {
   GetUserImpl(this._repository);
 
   @override
-  Future<Either<ErrorResponse, User>> call(int userId) async {
-    final response = await _repository.getUser(userId);
+  Future<Either<ErrorResponse, User>> call(String email) async {
+    final response = await _repository.getUser();
 
     if (response.body != null) {
-      final body = response.body!.data;
+      final data =
+          response.body!.data.firstWhere((user) => user.email == email);
       return Right(User(
-        body.id,
-        body.email,
-        body.firstName,
-        body.lastName,
-        body.avatar,
+        data.id,
+        data.email,
+        data.firstName,
+        data.lastName,
+        data.avatar,
       ));
     } else {
       return Left(response.error as ErrorResponse);

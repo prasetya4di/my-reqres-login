@@ -5,7 +5,7 @@ part 'user_response.g.dart';
 
 @JsonSerializable()
 class UserResponse {
-  final UserDataResponse data;
+  final List<UserDataResponse> data;
 
   UserResponse(this.data);
 
