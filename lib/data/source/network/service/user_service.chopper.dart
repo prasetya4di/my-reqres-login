@@ -17,9 +17,9 @@ class _$UserService extends UserService {
   final definitionType = UserService;
 
   @override
-  Future<Response<UserResponse>> getUser(int userId) {
+  Future<Response<UserResponse>> getUser(int page) {
     final Uri $url = Uri.parse('/users');
-    final Map<String, dynamic> $params = <String, dynamic>{'user_id': userId};
+    final Map<String, dynamic> $params = <String, dynamic>{'page': page};
     final Request $request = Request(
       'GET',
       $url,
