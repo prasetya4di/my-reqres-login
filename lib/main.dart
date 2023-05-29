@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_reqres_login/domain/presenter/login/login_page.dart';
+import 'package:my_reqres_login/domain/presenter/util/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginPage(),
+      onGenerateRoute: generateRoute,
+      initialRoute: Routes.login,
     );
   }
 }
