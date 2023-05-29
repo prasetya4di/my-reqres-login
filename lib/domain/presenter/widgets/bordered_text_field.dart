@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_reqres_login/domain/presenter/util/asset_colors.dart';
 import 'package:my_reqres_login/domain/presenter/widgets/label_medium.dart';
 import 'package:my_reqres_login/domain/presenter/widgets/space_vertical.dart';
 
@@ -34,7 +35,7 @@ class BorderedTextField extends StatefulWidget {
 class _BorderedTextField extends State<BorderedTextField> {
   final _defaultInputBorder = const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(color: Colors.black));
+      borderSide: BorderSide(color: AssetColors.gray200));
 
   @override
   Widget build(BuildContext context) {
