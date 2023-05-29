@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:my_reqres_login/domain/presenter/widgets/bordered_text_field.dart';
 
 class EmailTextField extends StatelessWidget {
-  const EmailTextField({super.key});
+  final TextEditingController controller;
+
+  const EmailTextField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return BorderedTextField(label: "E-mail", validator: _validateEmail);
+    return BorderedTextField(
+      label: "E-mail",
+      validator: _validateEmail,
+      controller: controller,
+    );
   }
 
   String? _validateEmail(String? value) {
