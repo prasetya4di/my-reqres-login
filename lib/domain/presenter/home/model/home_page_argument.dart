@@ -1,5 +1,5 @@
 class HomePageArgument {
-  final int userId;
+  final String email;
 
-  HomePageArgument(this.userId);
+  HomePageArgument(this.email);
 }
